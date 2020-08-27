@@ -1,3 +1,5 @@
+
+
 # Nao机器人API手册
 
 **上海意赋教育公司(ifcreate)**
@@ -71,6 +73,53 @@ id = motion.post.moveTo(0.5, 0, 0)
 motion.wait(id, 0)
 ```
 
- 
+## Naoqi接口模块
 
-·
+### 机器人运动
+
+#### ALRobotPosture
+
+##### ALRobotPosture.getPostureList()
+
+> <u>***Return：***</u>所有预定义的机器人姿势的vector
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.getPostureList()
+```
+
+```shell
+['Crouch', 'LyingBack', 'LyingBelly', 'Sit', 'SitOnChair', 'SitRelax', 'Stand', 'StandInit', 'StandZero']
+```
+
+##### ALRobotPosture.getPosture()
+
+> 返回当前预定义姿势的名称。如果当前姿势不在预定义姿势中，则返回"未知"
+>
+> **<u>*Return:*</u>** 当前姿势的字符串
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.getPosture()
+```
+
+##### ALRobotPosture.goToPosture (postureName，speed)
+
+> 使机器人进入参数中要求的预定义姿态，可以修改移动的速度。机器人动作是“智能”的:从机器人开始的姿态开始，选择所有应该的步骤到达所要求的姿态。
+>
+> <u>***Parameters:***</u> 
+>
+> *postureName*：目标预定义姿势名称字符串
+>
+> *speed*：0.0-1.0之间的相对速度
+>
+> <u>***Return：***</u> 达到目标姿势后返回True
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.goToPosture()
+```
+
