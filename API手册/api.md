@@ -113,13 +113,71 @@ posture.getPosture()
 >
 > *postureName*：目标预定义姿势名称字符串
 >
-> *speed*：0.0-1.0之间的相对速度
+> *speed*：相对速度，大小为0.0-1.0
 >
 > <u>***Return：***</u> 达到目标姿势后返回True
 
 ```python
 from naoqi import ALProxy
 posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
-posture.goToPosture()
+posture.goToPosture(postureName，speed)
 ```
+
+####ALRobotPostureProxy.applyPosture(postureName,speed)
+
+> 设定机器人的预定姿势的所有关节。操纵机器人的动态行为时使用这个命令，如果需要机器人快速达到一个姿势，则需要操作者的帮助。谨慎使用此功能，命令的作用是即时、无“智能”的，如果机器人正坐着，运用此命令要求机器人站起来，则对机器人可能跌到。
+>
+> <u>***Parameters:***</u> 
+>
+> *postureName*：目标预定义姿势名称字符串
+>
+> *speed*：相对速度，大小为0.0-1.0
+>
+> <u>***Return：***</u> 达到目标姿势后返回True
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.goToPosture(postureName,speed)
+```
+
+####ALRobotPostureProxy.stopMove( )
+
+> 停止目前的姿势
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.stop()
+```
+
+####ALRobotPostureProxy.getPostureFamily( )
+
+> 获取当前姿势所在的分类
+>
+> <u>***Return：***</u> 当前姿势所在的类别
+
+####ALRobotPostureProxy.getPostureFamilyList( )
+
+> 获取所有预定义的姿势分类
+>
+> <u>***Return：***</u> 所有预定义的姿势分类的vector
+
+```python
+from naoqi import ALProxy
+posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
+posture.getPosturFamilyeList()
+```
+
+```python
+['Belly', 'Crouching', 'Left', 'LyingBack', 'LyingBelly', 'LyingLeft', 'LyingRight', 'Right', 'Sitting', 'SittingOnChair', 'Standing', 'Unknown']
+```
+
+####ALRobotPostureProxy.setMaxTryNumber(maxTryNumber)
+
+> 设置最大尝试次数
+>
+> <u>***Parameters:***</u> 
+>
+> *maxTryNumber*：尝试次数，默认值为3
 
