@@ -1,0 +1,4 @@
+site_name: Nao机器人手册
+pages:
+- ['api.md', Home, abc]
+theme: readthedocs
