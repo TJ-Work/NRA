@@ -917,5 +917,63 @@ EngCom.disableEnergyComputation()
 
 清空所有将要发送给扬声器的样本
 
+##### `ALAudioDevice.getFrontMicEnergy()`
 
+返回前方麦克风在170ms缓冲区的平均信号能量，该功能运行前首先要用enableEnergyComputation()使能
 
+> <u>***Returns:***</u>   能量值，范围在0~32768之间
+
+```python
+from naoqi import ALProxy
+Eng = ALProxy("ALAudioDevice", "<IP of your robot>", 9559)
+Eng.enableEnergyComputation()
+leftEng = Eng.getFrontMicEnergy()
+```
+
+其余麦克风的能量计算同理
+
+##### `ALAudioDevice.getOutputVolume()`
+
+获取系统音量大小
+
+> <u>***Returns:***</u>   音量大小0~100
+
+##### `ALAudioDevice.isAudioOutMuted()`
+
+判断是否声音输出设备被禁止
+
+> <u>***Returns:***</u>   声音被禁止则返回True，否则返回False
+
+##### `ALAudioDevice.muteAudioOut(mute)`
+
+禁止声音设备
+
+> <u>***Parameters:***</u>   True表示禁止，False表示不禁止
+
+##### `ALAudioDevice.playSine(frequency，gain,pan,duration)`
+
+输出一个给定特性的正弦波
+
+> <u>***Parameters:***</u>   
+>
+> frequency：频率，单位赫兹
+>
+> gain：音量0~100
+>
+> pan：立体声像，取-1，0，1
+>
+> duration：持续时间，单位为秒
+
+##### `ALAudioDevice.sendLocalBufferToOutput(nbOfFrames,buffer)`
+
+一个本地的模块使用该函数发送信号到机器人的扬声器，信号存在十六位的缓存器中，缓存器的大小不超过16384
+
+> <u>**Parameters:**</u>   
+>
+> nbOfFrames：缓存器中的立体帧数
+>
+> buffer：缓存器的在内存空间中的地址
+>
+> <u>**Returns:**</u>   
+>
+> nbOfFrame
