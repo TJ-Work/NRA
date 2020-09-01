@@ -660,12 +660,10 @@ if __name__ == "__main__":
         sys.exit(1)
     main(session, args.facesize)
 ```
-=======
 
+## 机器人情绪感知
 
-### 机器人情绪感知
-
-#### ALMood模块
+### ALMood模块
 
 ALMood模块能够预测机器前方行人的表情、对机器人的行为目的和机器人周围环境氛围。
 
@@ -673,7 +671,7 @@ ALMood模块能够预测机器前方行人的表情、对机器人的行为目�
 
 连接到ALMood模块的信号和属性，获知机器人前面的人是积极的、消极的还是中立的，用户对机器人是不投入的，半投入的还是完全投入的，周围的环境是平静的还是兴奋的。
 
-##### `ALMood.currentPersonState()`
+#### `ALMood.currentPersonState()`
 
 该函数得到一个描述当前用户的情绪状态的结构体PersonState
 
@@ -710,7 +708,7 @@ PersonData =
 }
 ```
 
-##### `ALMood.currentPersonStateFromPeoplePerception(ID)`
+#### `ALMood.currentPersonStateFromPeoplePerception(ID)`
 
 该函数得到某个ID的用户的情绪状态
 
@@ -718,7 +716,7 @@ PersonData =
 >
 > <u>***Returns:***</u>   一个详细描述一个人的情绪的结构体,同上
 
-##### `ALMood.persons()`
+#### `ALMood.persons()`
 
 该函数得到一个列表，包含在模块内存中的所有用户
 
@@ -739,7 +737,7 @@ Person =
 }
 ```
 
-##### `ALMood.ambianceState()`
+#### `ALMood.ambianceState()`
 
 该函数得到一个表示周围环境状态的结构体AmbianceState
 
@@ -755,7 +753,7 @@ AmbianceData =
 }
 ```
 
-##### `ALMood.getEmotionalReaction()`
+#### `ALMood.getEmotionalReaction()`
 
 获取用户的情感反应。该函数寻找用户的首次情感反应，当出现以下任一情况时返回：
 
@@ -765,11 +763,11 @@ AmbianceData =
 
 > <u>***Returns:***</u>   检测到的情绪反应
 
-### 机器人语音
+## 机器人语音
 
-#### 语音管理
+### 语音管理
 
-### ALAnimatedSpeech模块
+#### ALAnimatedSpeech模块
 
 该模块使机器人以一种有表现力的形式来说话，包括语言和动作等。
 
@@ -863,7 +861,7 @@ AmbianceData =
 "That's cool. ^runSound(my_sound_set/my_sound) "
 ```
 
-##### `ALAnimatedSpeech.say(text)`
+#### `ALAnimatedSpeech.say(text)`
 
 机器人语音输出给定的语句，并且对内嵌在语句中的动态动作进行演示
 
@@ -894,7 +892,7 @@ ALAudioDevice可以以下列的帧数来发送数据到喇叭：
 - 两个通道交织，44100Hz
 - 两个通道交织，48000Hz
 
-##### `ALAudioDevice.disableEnergyComputation()`
+#### `ALAudioDevice.disableEnergyComputation()`
 
 关闭计算每个输入通道的能量
 
@@ -904,7 +902,7 @@ EngCom = ALProxy("ALAudioDevice", "<IP of your robot>", 9559)
 EngCom.disableEnergyComputation()
 ```
 
-##### `ALAudioDevice.enableEnergyComputation()`
+#### `ALAudioDevice.enableEnergyComputation()`
 
 使能计算每个输入通道的能量（默认是关闭的），计算结果可以通过以下函数调取：
 
@@ -913,7 +911,7 @@ EngCom.disableEnergyComputation()
 - `ALAudioDevice.getLeftMicEnergy()`
 - `ALAudioDevice.getRightMicEnergy()`
 
-##### `ALAudioDevice.flushAudioOutputs()`
+#### `ALAudioDevice.flushAudioOutputs()`
 
 清空所有将要发送给扬声器的样本
 
