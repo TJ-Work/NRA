@@ -1,4 +1,4 @@
-# Nao机器人API手册
+~
 
 **上海意赋教育公司(ifcreate)**
 
@@ -395,7 +395,7 @@ posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
 posture.goToPosture(postureName，speed)
 ```
 
-##### `ALRobotPostureProxy.applyPosture(postureName,speed)`
+##### `ALRobotPosture.applyPosture(postureName,speed)`
 
 设定机器人的预定姿势的所有关节。操纵机器人的动态行为时使用这个命令，如果需要机器人快速达到一个姿势，则需要操作者的帮助。谨慎使用此功能，命令的作用是即时、无“智能”的，如果机器人正坐着，运用此命令要求机器人站起来，则对机器人可能跌到。
 
@@ -411,7 +411,7 @@ posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
 posture.goToPosture(postureName,speed)
 ```
 
-##### `ALRobotPostureProxy.stopMove( )`
+##### `ALRobotPosture.stopMove( )`
 
 停止目前的姿势
 
@@ -421,7 +421,7 @@ posture = ALProxy("ALRobotPosture", "<IP of your robot>", 9559)
 posture.stop()
 ```
 
-##### `ALRobotPostureProxy.getPostureFamily( )`
+##### `ALRobotPosture.getPostureFamily( )`
 
 获取当前姿势所在的分类
 
@@ -443,7 +443,7 @@ posture.getPosturFamilyeList()
 ['Belly', 'Crouching', 'Left', 'LyingBack', 'LyingBelly', 'LyingLeft', 'LyingRight', 'Right', 'Sitting', 'SittingOnChair', 'Standing', 'Unknown']
 ```
 
-##### `ALRobotPostureProxy.setMaxTryNumber(maxTryNumber)`
+##### `ALRobotPosture.setMaxTryNumber(maxTryNumber)`
 
 > 设置最大尝试次数
 >
@@ -492,49 +492,49 @@ ALTracker模块允许机器人用不同的方式(头部、全身、移动等)跟
 
 #### 函数方法
 
-##### `ALTracker::getActiveTarget()`
+##### `ALTracker.getActiveTarget()`
 
 返回`ALTracker::track`检测到的目标名字
 
 > ***Return***：Tracked target name
 
-##### `ALTracker::getAvailableModes()`
+##### `ALTracker.getAvailableModes()`
 
 返回可行的跟踪模式
 
 > ***Return***：跟踪模式名字列表
 
-##### `ALTracker::getEffector()`
+##### `ALTracker.getEffector()`
 
 返回可行的跟踪模式，获取当前执行器名称。使用`ALTrackerProxy::setEffector`设置该值。
 
 > ***Return***：当前执行器名称。可能是 `“Arms”, “LArm”, “RArm” or “None”`
 
-##### `ALTracker::getMaximumAcceleration()`
+##### `ALTracker.getMaximumAcceleration()`
 
 获得头部最大加速度。使用`ALTracker.setMaximumAcceleration`设置此值。
 
 > ***Return***: 以rad.s^-2为单位返回最大加速度
 
-##### `ALTracker::getMaximumVelocity ()`
+##### `ALTracker.getMaximumVelocity ()`
 
 获得头部最大速度。使用`ALTracker.setMaximumVelocity`来设置这个值。
 
 > ***Return***: 以rad.s^-1为单位返回最大速度
 
-##### `ALTracker::getMode ()`
+##### `ALTracker.getMode ()`
 
 获取使用用`ALTracker.setMode`定义的当前模式。
 
 > ***Return***: 当前跟踪器预定义模式。参见:跟踪模式。
 
-##### `ALTracker::getRelativePosition ()`
+##### `ALTracker.getRelativePosition ()`
 
 获取移动模式下机器人相对于目标的位置。使用ALTracker.setRelativePosition设置该值。
 
 > ***Return***: 返回:跟踪的最终目标:`[coordX, coordY, coordWz, thresholdX, thresholdY, thresholdWz]`。
 
-##### `ALTracker::registerTarget(TargetName, Param)`
+##### `ALTracker.registerTarget(TargetName, Param)`
 
 用参数`(RedBall, 红球直径)`注册预定义的目标。如果跟踪正在运行，则订阅相应的提取器和存储最后位置。如果目标已经注册，则只更新参数。
 
@@ -542,49 +542,49 @@ ALTracker模块允许机器人用不同的方式(头部、全身、移动等)跟
 >
 > ​					   *Param* - 目标参数
 
-##### `ALTracker::track(TargetName)`
+##### `ALTracker.track(TargetName)`
 
 设定预先设定的目标进行跟踪，并开始跟踪过程。目标名称之前需要注册`ALTracker.registerTarget`。
 
 > ***Parameters:***  *Targetname* - 预先定义的目标名字
 
-##### `ALTracker::setEffector (Effector)`
+##### `ALTracker.setEffector (Effector)`
 
 设置一个末端执行器移动以进行跟踪。追踪器总是用头部, 使用ALTracker.getEffector获取该值。
 
 > ***Parameters:***  *Effector* - 执行器的名字。可以是:" Arms "， " LArm "， " RArm "或" None " 
 
-##### `ALTracker::setMaximumAcceleration (MaxAcceleration)`
+##### `ALTracker.setMaximumAcceleration (MaxAcceleration)`
 
 设置头部的最大绝对加速度。
 
 > ***Parameters:***  *MaxAcceleration* - 以rad.s^-2为单位的非负最大加速度
 
-##### `ALTracker::setMaximumDistanceDetection (MaxDistance)`
+##### `ALTracker.setMaximumDistanceDetection (MaxDistance)`
 
 设置目标检测的最大绝对距离。如果到目标的距离大于这里给出的距离，则认为目标丢失了。
 
 > ***Parameters:*** *MaxDistance * - 距离，正，单位为米。
 
-##### `ALTracker::setMaximumVelocity (MaxVelocity )`
+##### `ALTracker.setMaximumVelocity (MaxVelocity )`
 
 设置头的最大绝对速度。
 
 > ***Parameters:*** *MaxVelocity* – 速度，非负，单位为rad.s^-2
 
-##### `ALTracker::setMode (MaxVelocity)`
+##### `ALTracker.setMode (MaxVelocity)`
 
 将跟踪器设置为预定义模式。使用`ALTracker.getMode`获取该值。
 
 > ***Parameters:***  *Mode* - 预先定义的模式
 
-##### `ALTracker::setRelativePosition (Target)`
+##### `ALTrackerset.RelativePosition (Target)`
 
 在移动模式下，设置机器人相对于目标的位置。 使用`ALTracker.getRelativePosition`来获得这个值。
 
 > ***Parameters:***  *Target* - 跟踪的最终目标:`[coordX, coordY, coordWz, thresholdX, thresholdY, thresholdWz]`
 
-##### `ALTracker::stopTracker()`
+##### `ALTracker.stopTracker()`
 
 停止追踪
 
@@ -660,3 +660,262 @@ if __name__ == "__main__":
         sys.exit(1)
     main(session, args.facesize)
 ```
+=======
+
+
+### 机器人情绪感知
+
+#### ALMood模块
+
+ALMood模块能够预测机器前方行人的表情、对机器人的行为目的和机器人周围环境氛围。
+
+使用这项服务，你可以查询以下情绪感知的基本表现形式，获得一组如积极、消极、谨慎等情绪的描述符
+
+连接到ALMood模块的信号和属性，获知机器人前面的人是积极的、消极的还是中立的，用户对机器人是不投入的，半投入的还是完全投入的，周围的环境是平静的还是兴奋的。
+
+##### `ALMood.currentPersonState()`
+
+该函数得到一个描述当前用户的情绪状态的结构体PersonState
+
+> <u>***Returns:***</u>   一个详细描述一个人的情绪的结构体
+
+```python
+from naoqi import ALProxy
+mood = ALProxy("ALMood", "<IP of your robot>", 9559)
+mood.currentPersonState()
+```
+
+PersonState结构体的组成如下。其中valence的值域是-1（消极）~1（积极），其余的值的值域是0~1
+
+```python
+PersonData =
+{
+   "valence" : { value, confidence },
+   "attention" : { value, confidence },
+   "bodyLanguageState" :
+   {
+     "ease" : { level, confidence }
+   },
+   "smile" : { value, confidence },
+   "expressions" :
+   {
+    "calm" : { value, confidence },
+    "anger" : { value, confidence },
+    "joy" : { value, confidence },
+    "sorrow" : { value, confidence },
+    "laughter" : { value, confidence },
+    "excitement" : { value, confidence },
+    "surprise" : { value, confidence }
+   }
+}
+```
+
+##### `ALMood.currentPersonStateFromPeoplePerception(ID)`
+
+该函数得到某个ID的用户的情绪状态
+
+> <u>***Parameters:***</u>   ALUserSession的辨识符，具体参考ALUserSession-API
+>
+> <u>***Returns:***</u>   一个详细描述一个人的情绪的结构体,同上
+
+##### `ALMood.persons()`
+
+该函数得到一个列表，包含在模块内存中的所有用户
+
+> <u>***Returns:***</u>   一个Person结构体包含ALMood检测到的用户的ID及其情绪状态
+
+Person结构体如下：
+
+```python
+Person =
+{
+   "userSessionID" : usid,
+   "personState" :
+   {
+     ...
+     *See above*
+     ...
+   }
+}
+```
+
+##### `ALMood.ambianceState()`
+
+该函数得到一个表示周围环境状态的结构体AmbianceState
+
+> <u>***Returns:***</u>   一个描述环境状态的结构体AmbianceState
+
+AmbianceState结构体如下，值域为0~1
+
+```python
+AmbianceData =
+{
+   "agitationLevel" : value,
+   "calmLevel" : value
+}
+```
+
+##### `ALMood.getEmotionalReaction()`
+
+获取用户的情感反应。该函数寻找用户的首次情感反应，当出现以下任一情况时返回：
+
+（1）找到一个积极或者消极的情绪反应
+
+（2）超出设定时间
+
+> <u>***Returns:***</u>   检测到的情绪反应
+
+### 机器人语音
+
+#### 语音管理
+
+### ALAnimatedSpeech模块
+
+该模块使机器人以一种有表现力的形式来说话，包括语言和动作等。
+
+原理：模块可以接收用指令标注的文本，文本被分成一个个语句和动作小块，可以自定义每个动作和语句执行的同步性和异步性
+
+指令文本：一个包含语句和动作指令的文本，如
+
+```python
+"Hello! ^start(animations/Stand/Gestures/Hey_1) Nice to meet you!"
+```
+
+执行了这个文本之后，机器人的执行顺序是：
+
+（1）机器人说“Hello”
+
+（2）同时执行
+
+​			a.执行命令animations/Stand/Gestures/Hey_1
+
+​			b.说“Nice to meet you!”	
+
+如果想继续运行动作，可以在后面加一个**^wait**指令，如
+
+```python
+"Hello! ^start(animations/Stand/Gestures/Hey_1) Nice to meet you ^wait(animations/Stand/Gestures/Hey_1)"
+```
+
+具体的指令如下：
+
+**说话动作模式**
+
+| 指令                                      | 作用                                                         |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| **^mode(** *speaking_movement_mode* **)** | 改变说话的时候的动作，*speaking_movement_mode*可以是“disabled”"random""contextual" |
+
+```python
+"Hello. Look I can stop moving ^mode(disabled) and after I can resume moving ^mode(contextual), you see ?"
+```
+
+**动态动作**
+
+| 指令                                    | 作用                                   |
+| --------------------------------------- | -------------------------------------- |
+| **^run(** *animation_full_name* **)**   | 中止语音，进行动态动作，再重新开始语音 |
+| **^start(** *animation_full_name* **)** | 开始动作                               |
+| **^stop(** *animation_full_name* **)**  | 停止动作                               |
+| **^wait(** *animation_full_name* **)**  | 中止语音，等到动作结束再重新开始语音   |
+
+```python
+"^start(animations/Stand/Gestures/Enthusiastic_4) Look what I can do while speaking!"
+
+"^start(animations/Stand/Gestures/Enthusiastic_4) Look what I can do while speaking! ^stop(animations/Stand/Gestures/Enthusiastic_4) Now I am animated by the ALSpeakingMovement module"
+
+"^start(animations/Stand/Gestures/Hey_1)Hi, guys! ^wait(animations/Stand/Gestures/Hey_1)"
+```
+
+**运行标记动作**
+
+| 指令                                                         | 作用                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **^runTag(** *tag_name* **)** 或 **^runTag(** *path* , *tag_name* **)** | 中止语音→运行有标记的动态动作，如果指定路径，则只有该路径的动作被运行→重新开始语音 |
+| **^startTag(** *tag_name* **)** 或 **^runTag(** *path* , *tag_name* **)** | 运行有标记的动态动作，如果指定路径，则只有该路径的动作被运行 |
+| **^stopTag(** *tag_name* **)** 或**^stopTag(** *path* , *tag_name* **)** | 停止有标记的动态动作，如果指定路径，则只有该路径的动作被停止 |
+| **^waitTag(** *tag_name* **)** 或**^waitTag(** *path* , *tag_name* **)** | 中止语音→等待有标记的动态动作结束，如果指定路径，则只等待该路径指定的动作→重新开始语音 |
+
+```python
+"^startTag(me) My name is Nao."
+
+"^startTag(hello) Hello. ^waitTag(hello)"
+
+"^startTag(hello) Hello Paul, nice to meet you. ^stopTag(hello) My name is Nao."
+
+"^startTag(animations/Stand, hello) Hello. ^waitTag(animations/Stand, hello)"
+
+```
+
+**声音**
+
+| 指令                                                         | 作用                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **^runSound(** *soundSet/soundFile* **)**或**^runSound(** *soundSet/soundFile* , *soundVolume* **)** | 中断语音→播放声音→重新启动语音。*soundVolume*是0~100的整数，默认值为100 |
+| **^startSound(** *soundSet/soundFile* **)**或**^startSound(** *soundSet/soundFile* , *soundVolume* **)** | 播放声音作为背景音乐。*soundVolume*是0~100的整数，默认值为100 |
+| **^stopSound(** *soundSet/soundFile* **)**                   | 停止播放                                                     |
+| **^waitSound(** *soundSet/soundFile* **)**                   | 中止语音→等待播放结束→重新启动语音                           |
+
+```python
+"^startSound(my_sound_set/my_sound) That's cool."
+
+"^startSound(my_sound_set/my_sound, 50) That's cool. ^waitSound(my_sound_set/my_sound)"
+
+"That's cool. ^runSound(my_sound_set/my_sound) "
+```
+
+##### `ALAnimatedSpeech.say(text)`
+
+机器人语音输出给定的语句，并且对内嵌在语句中的动态动作进行演示
+
+> <u>***Parameters:***</u>   一个给定的文本语句，例如“Hello. ^start(animations/Stand/Gestures/Hey_1) My name is John Doe. Nice to meet you!”)
+
+```python
+from naoqi import ALProxy
+speech = ALProxy("ALAnimatedSpeech", "<IP of your robot>", 9559)
+speech.say("Hello! ^start(animations/Stand/Gestures/Hey_1) Nice to meet you!")
+```
+
+
+
+### ALAudioDevice模块
+
+该模块提供给其它Naoqi模块到NAO的声音输入（麦克风）和声音输出（喇叭）的接口，每个需要处理声音信号的Naoqi模块都要使用该模块来传递信号。
+
+ALAudioDevice可以以下列的格式来表示由麦克风输入的声音：
+
+- 四个通道交织，48000Hz，170ms缓冲（默认）
+- 四个通道分选，48000Hz，170ms缓冲
+- 一个通道（前，后，左或者右），16000Hz，170ms缓冲
+
+ALAudioDevice可以以下列的帧数来发送数据到喇叭：
+
+- 两个通道交织，16000Hz（亚洲语言默认该值）
+- 两个通道交织，22050Hz（非亚洲语言默认该值）
+- 两个通道交织，44100Hz
+- 两个通道交织，48000Hz
+
+##### `ALAudioDevice.disableEnergyComputation()`
+
+关闭计算每个输入通道的能量
+
+```python
+from naoqi import ALProxy
+EngCom = ALProxy("ALAudioDevice", "<IP of your robot>", 9559)
+EngCom.disableEnergyComputation()
+```
+
+##### `ALAudioDevice.enableEnergyComputation()`
+
+使能计算每个输入通道的能量（默认是关闭的），计算结果可以通过以下函数调取：
+
+- `ALAudioDevice.getFrontMicEnergy()`
+- `ALAudioDevice.getRearMicEnergy()`
+- `ALAudioDevice.getLeftMicEnergy()`
+- `ALAudioDevice.getRightMicEnergy()`
+
+##### `ALAudioDevice.flushAudioOutputs()`
+
+清空所有将要发送给扬声器的样本
+
+
+
