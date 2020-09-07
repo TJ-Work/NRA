@@ -452,16 +452,57 @@ print 'end'
 
 `ALLocalization`是一个模块，致力于在室内环境中对机器人*进行*定位。
 
-`ALLocalization.learnHome()`
+#### `ALLocalization.learnHome()`
 
 学习机器人的主节点
 
 > ***Returns***:  无错误返回0，否则返回错误代码
 
-`ALLocalization.getRobotPosition(active)`
+#### `ALLocalization.getRobotPosition(active)`
 
 学习机器人的主节点
 
 > ***Parameters***: *active* - 默认为False， 定义里程计不可靠是的重定位过程，如果为True, 机器人会重新扫描来定位，如果为假，机器人将不会移动。
 >
 > ***Returns***:  机器人2D的坐标(x, y)。
+
+#### `ALLocalization.goToHome ()`
+
+如果需要,将机器人移动到执行`ALLocalization.learnHome`的地方。准确性取决于环境。
+
+> ***Returns***:  如果无错误返回0， 否则返回错误代码
+
+#### `Example`
+
+```python
+motionProxy  = ALProxy("ALMotion", robotIP, PORT)
+localizationProxy = ALProxy("ALLocalization", robotIP, PORT)
+
+# Learning home.
+ret = localizationProxy.learnHome()
+# Check that no problem occurred.
+if ret == 0:
+  print "Learning OK"
+else:
+  print "Error during learning " + str(ret)
+
+# Make some moves.
+motionProxy.moveTo(0.5, 0.0, 0.2)
+
+# Go back home.
+ret = localizationProxy.goToHome()
+# Check that no problem occurred.
+if ret == 0:
+  print "go to home OK"
+else:
+  print "error during go to home " + str(ret)
+
+# Save the data for later use.
+ret = localizationProxy.save("example")
+# Check that no problem occurred.
+if ret == 0:
+  print "saving OK"
+else:
+  print "error during saving" + str(ret)
+```
+
