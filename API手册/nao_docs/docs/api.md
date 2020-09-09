@@ -818,9 +818,7 @@ AmbianceData =
 
 ```python
 "^start(animations/Stand/Gestures/Enthusiastic_4) Look what I can do while speaking!"
-
 "^start(animations/Stand/Gestures/Enthusiastic_4) Look what I can do while speaking! ^stop(animations/Stand/Gestures/Enthusiastic_4) Now I am animated by the ALSpeakingMovement module"
-
 "^start(animations/Stand/Gestures/Hey_1)Hi, guys! ^wait(animations/Stand/Gestures/Hey_1)"
 ```
 
@@ -835,11 +833,8 @@ AmbianceData =
 
 ```python
 "^startTag(me) My name is Nao."
-
 "^startTag(hello) Hello. ^waitTag(hello)"
-
 "^startTag(hello) Hello Paul, nice to meet you. ^stopTag(hello) My name is Nao."
-
 "^startTag(animations/Stand, hello) Hello. ^waitTag(animations/Stand, hello)"
 
 ```
@@ -974,4 +969,38 @@ leftEng = Eng.getFrontMicEnergy()
 >
 > <u>**Returns:**</u>   
 >
-> nbOfFrame
+> 操作成功返回True，否则返回False
+
+##### `ALAudioDevice.setClientPreferences(name,sampleRate,channels,deinterleaved)`
+
+模块可以通过这个函数来设定ALAudioDevice传递的信号的格式。如果没有调用这个函数，则默认发送给这个模块的格式是四个交织通道，48000Hz。下列的格式组合是可行的：
+
+- 四通道交织，48000Hz（默认设置）
+- 四通道分选，48000Hz
+- 一通道（前，后，左或右），16000Hz
+
+> <u>**Parameters:**</u>   
+>
+> name：模块名字
+>
+> sampleRte：取样率，16000Hz或48000Hz
+>
+> channels：通道配置，AL.ALLCHANNELS，AL.FRONTCHANNEL，AL.LEFTCHANNEL或者AL.REARCHANNEL
+>
+> denterleaved：只有当通道配置为AL.ALLCHANNELS时才有效
+
+##### `ALAudioDevice.setFileAsInput(fileName)`
+
+该函数将特定文件设定为声音输入，声音文件以.wav为后缀，包含48000Hz，16位，四通道交织信号
+
+> <u>**Parameters:**</u>  
+>
+>  fileName：文件的绝对路径
+
+##### `ALAudioDevice.setOutputVolume(volume)`
+
+该函数设定系统的输入音量，音量可以由ALAudioDevice.getOutputVolume获取
+
+#### `ALAudioDevice.startMicrophonesRecording(fileName)`
+
+该函数将麦克风收集到的信号直接记录在特定的文件中。如果文件后缀为.wav
