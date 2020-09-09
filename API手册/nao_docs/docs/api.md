@@ -14,7 +14,7 @@
 
 ### 获取机器人ip地址
 
-1. [使用网线进行连接后，从电脑端的app中设置机器人连接无线网](https://developer.softbankrobotics.com/nao6/nao-documentation/nao-user-guide/first-steps-nao/get-robot-settings#robot-settings) 
+1. 使用网线进行连接后，从电脑端的app中设置机器人连接无线网
 2. ![/sites/default/files/repository/70_html_nao/_images/note_ipaddress.png](E:/my_blogs/source/images/note_ipaddress-1598428326016.png)
 3. 快速按下**NAO**的胸部按钮一次。NAO会复述他的IP地址的四个数字，用**点分隔**。
 
