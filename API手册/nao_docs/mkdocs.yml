@@ -1,4 +1,9 @@
 site_name: Nao机器人手册
-pages:
-- ['api.md', Home, abc]
+nav:
+    - '简介': index.md
+    - '基本操作': basic.md
+    - '机器人运动': motion.md
+    - '机器人视觉': vision.md
+    - '机器人听觉': audio.md
+    - '机器人情绪感知': emotion.md
 theme: readthedocs
