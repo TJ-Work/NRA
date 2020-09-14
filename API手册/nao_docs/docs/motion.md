@@ -50,7 +50,7 @@ X轴正向机器人的前方，Y轴从右到左，Z轴垂直向上。
 
 ##### 关节控制
 
-###### `ALMotion.angleInterpolation (names,angleLists,timeLists,isAbsolute )`
+<h5 id="41">`ALMotion.angleInterpolation (names,angleLists,timeLists,isAbsolute )`</h5>
 
 插入一个或多个关节到目标角度或沿时间轨迹。这是一个阻塞调用。
 
