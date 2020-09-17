@@ -167,6 +167,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../emotion/">机器人情绪感知</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dance/">机器人跳舞实例解析</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kick_ball/">机器人踢球实例解析</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -199,30 +207,30 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="_1">机器人运动</h2>
-<h3 id="almotion">ALMotion模块</h3>
+                <h2 id="_1">机器人运动<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<h3 id="almotion">ALMotion模块<a class="headerlink" href="#almotion" title="Permanent link">#</a></h3>
 <p>它包括四组主要的控制方法: 关节刚度(电机基本开断)；关节位置(插补、反应控制)；步行(距离和速度控制，世界位置等)；笛卡尔空间中的机器人执行器(逆运动学，全身约束)。<code>ALMotion</code>模块还实现了自碰撞避免、外部碰撞避免、跌落控制、智能调节刚度和诊断效果等功能。<code>ALMotion</code>运行在50Hz(周期20ms)。在<code>ALMotion</code>中，每当您调用一个公共方法来请求一个动作时，就会创建一个“动作任务”来处理该任务。</p>
-<h4 id="_2">基本参数</h4>
+<h4 id="_2">基本参数<a class="headerlink" href="#_2" title="Permanent link">#</a></h4>
 <p>X轴正向机器人的前方，Y轴从右到左，Z轴垂直向上。</p>
 <p><img alt=" " src="../imgs/axis_def.png" /></p>
-<h4 id="_3">函数方法</h4>
+<h4 id="_3">函数方法<a class="headerlink" href="#_3" title="Permanent link">#</a></h4>
 <p><code>ALMotion</code>提供帮助机器人移动的方法。它包含允许您操作关节刚度、关节角度的命令，以及允许您控制行走的更高级别API。</p>
-<h5 id="api">刚度控制API</h5>
-<h6 id="almotionwakeup"><code>ALMotion.wakeUp()</code></h6>
+<h5 id="api">刚度控制API<a class="headerlink" href="#api" title="Permanent link">#</a></h5>
+<h6 id="almotionwakeup"><code>ALMotion.wakeUp()</code><a class="headerlink" href="#almotionwakeup" title="Permanent link">#</a></h6>
 <p>唤醒机器人，打开电机，如果需要，恢复到初始位置。如果机器人已经激活，调用立即返回True。</p>
 <blockquote>
 <p>成功返回True, 否则返回False</p>
 </blockquote>
-<h6 id="almotionrest"><code>ALMotion.rest()</code></h6>
+<h6 id="almotionrest"><code>ALMotion.rest()</code><a class="headerlink" href="#almotionrest" title="Permanent link">#</a></h6>
 <p>使机器人休眠: 并进入一个放松和安全的位置，并关闭电机。例如，进入蹲姿，并关闭刚度。</p>
-<h6 id="almotionsetstiffnessesnames-stiffnesses"><code>ALMotion.setStiffnesses(names, stiffnesses)</code></h6>
+<h6 id="almotionsetstiffnessesnames-stiffnesses"><code>ALMotion.setStiffnesses(names, stiffnesses)</code><a class="headerlink" href="#almotionsetstiffnessesnames-stiffnesses" title="Permanent link">#</a></h6>
 <p>设置一个或多个关节的刚度，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>names</code>- 关节名称, “Body”, “JointActuators”, “Joints” or “Actuators”.</p>
 <p><code>stiffness</code> - 在0和1之间的一个或多个刚度参数。</p>
 </blockquote>
-<h6 id="almotiongetstiffnessesnames"><code>ALMotion.getStiffnesses(names)</code></h6>
+<h6 id="almotiongetstiffnessesnames"><code>ALMotion.getStiffnesses(names)</code><a class="headerlink" href="#almotiongetstiffnessesnames" title="Permanent link">#</a></h6>
 <p>获取一个或多个关节的刚度。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -230,8 +238,9 @@
 <p><strong><em>Return</em></strong>：</p>
 <p><code>stiffness</code> - 在0和1之间的一个或多个刚度参数。</p>
 </blockquote>
-<h5 id="_4">关节控制</h5>
-<h6 id="almotionangleinterpolation-namesangleliststimelistsisabsolute"><code>ALMotion.angleInterpolation (names,angleLists,timeLists,isAbsolute )</code></h6>
+<h5 id="_4">关节控制<a class="headerlink" href="#_4" title="Permanent link">#</a></h5>
+<h5 id="41">`ALMotion.angleInterpolation (names,angleLists,timeLists,isAbsolute )`</h5>
+
 <p>插入一个或多个关节到目标角度或沿时间轨迹。这是一个阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -240,7 +249,7 @@
 <p><code>timeLists</code> - 时间，时间列表或时间列表，以秒为单位</p>
 <p><code>isAbsolute</code> - 如果为真，运动被描述为绝对角度，否则角度是相对于当前的角度</p>
 </blockquote>
-<h6 id="almotionangleinterpolationwithspeednamestargetanglesmaxspeedfraction"><code>ALMotion.angleInterpolationWithSpeed(names,targetAngles,maxSpeedFraction)</code></h6>
+<h6 id="almotionangleinterpolationwithspeednamestargetanglesmaxspeedfraction"><code>ALMotion.angleInterpolationWithSpeed(names,targetAngles,maxSpeedFraction)</code><a class="headerlink" href="#almotionangleinterpolationwithspeednamestargetanglesmaxspeedfraction" title="Permanent link">#</a></h6>
 <p>插值使一个或多个关节到一个目标角度，使用一个最大关节速度的百分比。每个关节只允许一个目标角。这是一个阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -248,7 +257,7 @@
 <p><code>targetAngles</code>-以弧度表示的角、角列表或角列表</p>
 <p><code>maxSpeedFraction</code> - 一个百分比</p>
 </blockquote>
-<h6 id="almotionsetanglesnames-angles-fractionmaxspeed"><code>ALMotion.setAngles(names, angles, fractionMaxSpeed)</code></h6>
+<h6 id="almotionsetanglesnames-angles-fractionmaxspeed"><code>ALMotion.setAngles(names, angles, fractionMaxSpeed)</code><a class="headerlink" href="#almotionsetanglesnames-angles-fractionmaxspeed" title="Permanent link">#</a></h6>
 <p>设置角度，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -256,7 +265,7 @@
 <p><code>targetAngles</code>-以弧度表示的角、角列表或角列表</p>
 <p><code>fractionMaxSpeed</code>- 占最大速度的百分比</p>
 </blockquote>
-<h6 id="almotionchangeanglesnames-angles-fractionmaxspeed"><code>ALMotion.changeAngles(names, angles, fractionMaxSpeed)</code></h6>
+<h6 id="almotionchangeanglesnames-angles-fractionmaxspeed"><code>ALMotion.changeAngles(names, angles, fractionMaxSpeed)</code><a class="headerlink" href="#almotionchangeanglesnames-angles-fractionmaxspeed" title="Permanent link">#</a></h6>
 <p>改变角度，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -264,7 +273,7 @@
 <p><code>targetAngles</code>-以弧度表示的角、角列表或角列表</p>
 <p><code>fractionMaxSpeed</code>- 占最大速度的百分比</p>
 </blockquote>
-<h6 id="almotiongetanglesnames-usesensors"><code>ALMotion.getAngles(names, useSensors)</code></h6>
+<h6 id="almotiongetanglesnames-usesensors"><code>ALMotion.getAngles(names, useSensors)</code><a class="headerlink" href="#almotiongetanglesnames-usesensors" title="Permanent link">#</a></h6>
 <p>获得所有关节的角度</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -272,8 +281,8 @@
 <p><code>useSensors</code>-如果设置为True， 传感器角度会被返回</p>
 <p><strong><em>Return：</em></strong> 以弧度为单位的关节角度</p>
 </blockquote>
-<h5 id="_5">运动控制</h5>
-<h6 id="almotionmovex-y-theta"><code>ALMotion.move(x, y, theta)</code></h6>
+<h5 id="_5">运动控制<a class="headerlink" href="#_5" title="Permanent link">#</a></h5>
+<h6 id="almotionmovex-y-theta"><code>ALMotion.move(x, y, theta)</code><a class="headerlink" href="#almotionmovex-y-theta" title="Permanent link">#</a></h6>
 <p>使机器人以给定的速度运动，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -281,7 +290,7 @@
 <p><code>y</code> -沿y轴的速度，单位是米每秒。向左移动为正值</p>
 <p><code>theta</code> - 绕z轴的速度，单位是弧度/秒。顺时针旋转为负值。</p>
 </blockquote>
-<h6 id="almotionmovetowardx-y-theta"><code>ALMotion.moveToward(x, y, theta)</code></h6>
+<h6 id="almotionmovetowardx-y-theta"><code>ALMotion.moveToward(x, y, theta)</code><a class="headerlink" href="#almotionmovetowardx-y-theta" title="Permanent link">#</a></h6>
 <p>使机器人以给定的归一化速度运动，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -289,7 +298,7 @@
 <p><code>y</code>-沿y轴的归一化速度，单位是米每秒。向左移动为正值，+1为最小值</p>
 <p><code>theta</code>- 绕z轴的归一化速度，单位是弧度/秒。顺时针旋转为负值。</p>
 </blockquote>
-<h6 id="almotionmovetox-y-theta"><code>ALMotion.moveTo(x, y, theta)</code></h6>
+<h6 id="almotionmovetox-y-theta"><code>ALMotion.moveTo(x, y, theta)</code><a class="headerlink" href="#almotionmovetox-y-theta" title="Permanent link">#</a></h6>
 <p>使机器人以给定的归一化速度运动，这是一个非阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -298,10 +307,10 @@
 <p><code>theta</code>- 绕z轴的旋转，单位是弧度， 范围为[-3.1415 to 3.1415]。</p>
 <p><strong><em>Return：</em></strong> 如果抵达返回True, 被中断则返回False</p>
 </blockquote>
-<h6 id="almotionstopmove"><code>ALMotion.stopMove()</code></h6>
+<h6 id="almotionstopmove"><code>ALMotion.stopMove()</code><a class="headerlink" href="#almotionstopmove" title="Permanent link">#</a></h6>
 <p>停止运动</p>
-<h5 id="_6">笛卡尔控制</h5>
-<h6 id="almotionsetpositionseffectornames-frame-position-fractionmaxspeed-axismask"><code>ALMotion.setPositions(effectorNames, frame, position, fractionMaxSpeed, axisMask)</code></h6>
+<h5 id="_6">笛卡尔控制<a class="headerlink" href="#_6" title="Permanent link">#</a></h5>
+<h6 id="almotionsetpositionseffectornames-frame-position-fractionmaxspeed-axismask"><code>ALMotion.setPositions(effectorNames, frame, position, fractionMaxSpeed, axisMask)</code><a class="headerlink" href="#almotionsetpositionseffectornames-frame-position-fractionmaxspeed-axismask" title="Permanent link">#</a></h6>
 <p>随着时间的推移，移动末端执行器到给定的位置和方向。这是一个阻塞调用。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -393,7 +402,7 @@ if __name__ == &quot;__main__&quot;:
     main(session)
 </code></pre>
 
-<h6 id="almotiongetpositionsname-frame-usesensorvalues"><code>ALMotion.getPositions(name, frame, useSensorValues)</code></h6>
+<h6 id="almotiongetpositionsname-frame-usesensorvalues"><code>ALMotion.getPositions(name, frame, useSensorValues)</code><a class="headerlink" href="#almotiongetpositionsname-frame-usesensorvalues" title="Permanent link">#</a></h6>
 <p>获取相对于坐标系的位置。x轴为正方向，y轴从右到左，z轴为垂直方向。Position6D的角度约定是Rot_z(wz). rot_y (wy). rot_x (wx)。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
@@ -401,12 +410,12 @@ if __name__ == &quot;__main__&quot;:
 <p><code>frame</code>-任务坐标系</p>
 <p><code>useSensorValues</code>-  如果为真，传感器值将用于确定位置。</p>
 </blockquote>
-<h3 id="alrobotposture">ALRobotPosture模块</h3>
+<h3 id="alrobotposture">ALRobotPosture模块<a class="headerlink" href="#alrobotposture" title="Permanent link">#</a></h3>
 <p><code>ALRobotPosture</code>模块可以让机器人切换到不同的预定义姿势。您可以在<code>ALRobot.goToPosture</code>和<code>ALRobotPosture.applyPosture</code>之间选择。</p>
 <p>如果你想创建一个机器人自动执行的应用程序，请始终选择<code>ALRobotPosture.goToPosture</code>。
 在操作机器人时，如果你只是想要快速到达姿势的捷径，你可以使用<code>ALRobotPosture.applyPosture</code>(你将不得不帮助机器人)。</p>
 <p>机器人检测到它当前的姿态，并自动计算从当前姿态到目标姿态的路径，然后执行，在此过程中用户可以选择执行速度的快慢。</p>
-<h4 id="_7">预定义姿势</h4>
+<h4 id="_7">预定义姿势<a class="headerlink" href="#_7" title="Permanent link">#</a></h4>
 <p>机器人的姿态是其关节和惯性传感器的(独特的)结构。由于姿势是由一组实数(比如浮点数)定义的，所以姿势的数量是无限的。</p>
 <p>以下是预先定义的姿势名称列表:</p>
 <ul>
@@ -478,8 +487,8 @@ if __name__ == &quot;__main__&quot;:
 </tr>
 </tbody>
 </table>
-<h4 id="_8">函数方法</h4>
-<h5 id="alrobotposturegetposturelist"><code>ALRobotPosture.getPostureList()</code></h5>
+<h4 id="_8">函数方法<a class="headerlink" href="#_8" title="Permanent link">#</a></h4>
+<h5 id="alrobotposturegetposturelist"><code>ALRobotPosture.getPostureList()</code><a class="headerlink" href="#alrobotposturegetposturelist" title="Permanent link">#</a></h5>
 <blockquote>
 <p><u><strong><em>Return：</em></strong></u>所有预定义的机器人姿势的vector</p>
 </blockquote>
@@ -491,7 +500,7 @@ posture.getPostureList()
 <pre><code class="shell">['Crouch', 'LyingBack', 'LyingBelly', 'Sit', 'SitOnChair', 'SitRelax', 'Stand', 'StandInit', 'StandZero']
 </code></pre>
 
-<h5 id="alrobotposturegetposture"><code>ALRobotPosture.getPosture()</code></h5>
+<h5 id="alrobotposturegetposture"><code>ALRobotPosture.getPosture()</code><a class="headerlink" href="#alrobotposturegetposture" title="Permanent link">#</a></h5>
 <p>返回当前预定义姿势的名称。如果当前姿势不在预定义姿势中，则返回"未知"</p>
 <blockquote>
 <p><strong><u><em>Return:</em></u></strong> 当前姿势的字符串</p>
@@ -501,7 +510,7 @@ posture = ALProxy(&quot;ALRobotPosture&quot;, &quot;&lt;IP of your robot&gt;&quo
 posture.getPosture()
 </code></pre>
 
-<h5 id="alrobotposturegotoposture-posturenamespeed"><code>ALRobotPosture.goToPosture (postureName，speed)</code></h5>
+<h5 id="alrobotposturegotoposture-posturenamespeed"><code>ALRobotPosture.goToPosture (postureName，speed)</code><a class="headerlink" href="#alrobotposturegotoposture-posturenamespeed" title="Permanent link">#</a></h5>
 <p>使机器人进入参数中要求的预定义姿态，可以修改移动的速度。机器人动作是“智能”的:从机器人开始的姿态开始，选择所有应该的步骤到达所要求的姿态。</p>
 <blockquote>
 <p><u><strong><em>Parameters:</em></strong></u>  </p>
@@ -514,7 +523,7 @@ posture = ALProxy(&quot;ALRobotPosture&quot;, &quot;&lt;IP of your robot&gt;&quo
 posture.goToPosture(postureName，speed)
 </code></pre>
 
-<h5 id="alrobotpostureapplypostureposturenamespeed"><code>ALRobotPosture.applyPosture(postureName,speed)</code></h5>
+<h5 id="alrobotpostureapplypostureposturenamespeed"><code>ALRobotPosture.applyPosture(postureName,speed)</code><a class="headerlink" href="#alrobotpostureapplypostureposturenamespeed" title="Permanent link">#</a></h5>
 <p>设定机器人的预定姿势的所有关节。操纵机器人的动态行为时使用这个命令，如果需要机器人快速达到一个姿势，则需要操作者的帮助。谨慎使用此功能，命令的作用是即时、无“智能”的，如果机器人正坐着，运用此命令要求机器人站起来，则对机器人可能跌到。</p>
 <blockquote>
 <p><u><strong><em>Parameters:</em></strong></u>  </p>
@@ -527,19 +536,19 @@ posture = ALProxy(&quot;ALRobotPosture&quot;, &quot;&lt;IP of your robot&gt;&quo
 posture.goToPosture(postureName,speed)
 </code></pre>
 
-<h5 id="alrobotposturestopmove"><code>ALRobotPosture.stopMove( )</code></h5>
+<h5 id="alrobotposturestopmove"><code>ALRobotPosture.stopMove( )</code><a class="headerlink" href="#alrobotposturestopmove" title="Permanent link">#</a></h5>
 <p>停止目前的姿势</p>
 <pre><code class="python">from naoqi import ALProxy
 posture = ALProxy(&quot;ALRobotPosture&quot;, &quot;&lt;IP of your robot&gt;&quot;, 9559)
 posture.stop()
 </code></pre>
 
-<h5 id="alrobotposturegetposturefamily"><code>ALRobotPosture.getPostureFamily( )</code></h5>
+<h5 id="alrobotposturegetposturefamily"><code>ALRobotPosture.getPostureFamily( )</code><a class="headerlink" href="#alrobotposturegetposturefamily" title="Permanent link">#</a></h5>
 <p>获取当前姿势所在的分类</p>
 <blockquote>
 <p><u><strong><em>Return：</em></strong></u> 当前姿势所在的类别</p>
 </blockquote>
-<h5 id="alrobotpostureproxygetposturefamilylist"><code>ALRobotPostureProxy.getPostureFamilyList( )</code></h5>
+<h5 id="alrobotpostureproxygetposturefamilylist"><code>ALRobotPostureProxy.getPostureFamilyList( )</code><a class="headerlink" href="#alrobotpostureproxygetposturefamilylist" title="Permanent link">#</a></h5>
 <p>获取所有预定义的姿势分类</p>
 <blockquote>
 <p><u><strong><em>Return：</em></strong></u> 所有预定义的姿势分类的vector</p>
@@ -552,15 +561,15 @@ posture.getPosturFamilyeList()
 <pre><code class="python">['Belly', 'Crouching', 'Left', 'LyingBack', 'LyingBelly', 'LyingLeft', 'LyingRight', 'Right', 'Sitting', 'SittingOnChair', 'Standing', 'Unknown']
 </code></pre>
 
-<h5 id="alrobotposturesetmaxtrynumbermaxtrynumber"><code>ALRobotPosture.setMaxTryNumber(maxTryNumber)</code></h5>
+<h5 id="alrobotposturesetmaxtrynumbermaxtrynumber"><code>ALRobotPosture.setMaxTryNumber(maxTryNumber)</code><a class="headerlink" href="#alrobotposturesetmaxtrynumbermaxtrynumber" title="Permanent link">#</a></h5>
 <blockquote>
 <p>设置最大尝试次数</p>
 <p><u><strong><em>Parameters:</em></strong></u>  </p>
 <p><code>maxTryNumber</code>：尝试次数，默认值为3</p>
 </blockquote>
-<h3 id="altracker">ALTracker模块</h3>
+<h3 id="altracker">ALTracker模块<a class="headerlink" href="#altracker" title="Permanent link">#</a></h3>
 <p>ALTracker模块允许机器人用不同的方式(头部、全身、移动等)跟踪不同的目标(红色的球、脸、地标等)。这个模块的主要作用是在目标检测和运动之间建立一个桥梁，使机器人一直注视着摄像机中间的目标。</p>
-<h4 id="_9">跟踪模式</h4>
+<h4 id="_9">跟踪模式<a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
 <p><strong>ALTracker</strong> 跟踪模式如下所示：</p>
 <table>
 <thead>
@@ -588,7 +597,7 @@ posture.getPosturFamilyeList()
 </tr>
 </tbody>
 </table>
-<h4 id="_10">跟踪的物体种类</h4>
+<h4 id="_10">跟踪的物体种类<a class="headerlink" href="#_10" title="Permanent link">#</a></h4>
 <p><strong>ALTracker</strong> 可以跟踪以下物体：</p>
 <table>
 <thead>
@@ -631,7 +640,7 @@ posture.getPosturFamilyeList()
 </tr>
 </tbody>
 </table>
-<h4 id="_11">物体位置识别坐标系</h4>
+<h4 id="_11">物体位置识别坐标系<a class="headerlink" href="#_11" title="Permanent link">#</a></h4>
 <ul>
 <li>
 <p><img alt="abc" src="https://developer.softbankrobotics.com/sites/default/files/repository/70_html_nao/_images/tracker_red_ball.png" /></p>
@@ -642,97 +651,97 @@ posture.getPosturFamilyeList()
 <li>它可以给出目标在目标坐标系中的位置。</li>
 <li>函数<code>ALTracker.getTargetPosition</code>返回活动目标的[x, y, z]位置。</li>
 </ul>
-<h4 id="_12">前提条件</h4>
+<h4 id="_12">前提条件<a class="headerlink" href="#_12" title="Permanent link">#</a></h4>
 <p>根据所选择的<code>模式</code>，所使用的身体部位的<code>Stiffness</code>必须设置为1.0，否则不能移动。此外，对于<code>move</code>和全身<code>WholeBody</code>，机器人必须处于站立姿势，准备移动。</p>
 <p>要设置刚度，使用motion api <code>ALMotion.stiffnessInterpolation</code>。要到达预定义的姿势，请参考: <code>ALRobotPosture::goToPosture</code>。</p>
-<h4 id="_13">函数方法</h4>
-<h5 id="altrackergetactivetarget"><code>ALTracker.getActiveTarget()</code></h5>
+<h4 id="_13">函数方法<a class="headerlink" href="#_13" title="Permanent link">#</a></h4>
+<h5 id="altrackergetactivetarget"><code>ALTracker.getActiveTarget()</code><a class="headerlink" href="#altrackergetactivetarget" title="Permanent link">#</a></h5>
 <p>返回<code>ALTracker::track</code>检测到的目标名字</p>
 <blockquote>
 <p><strong><em>Return</em></strong>：Tracked target name</p>
 </blockquote>
-<h5 id="altrackergetavailablemodes"><code>ALTracker.getAvailableModes()</code></h5>
+<h5 id="altrackergetavailablemodes"><code>ALTracker.getAvailableModes()</code><a class="headerlink" href="#altrackergetavailablemodes" title="Permanent link">#</a></h5>
 <p>返回可行的跟踪模式</p>
 <blockquote>
 <p><strong><em>Return</em></strong>：跟踪模式名字列表</p>
 </blockquote>
-<h5 id="altrackergeteffector"><code>ALTracker.getEffector()</code></h5>
+<h5 id="altrackergeteffector"><code>ALTracker.getEffector()</code><a class="headerlink" href="#altrackergeteffector" title="Permanent link">#</a></h5>
 <p>返回可行的跟踪模式，获取当前执行器名称。使用<code>ALTrackerProxy::setEffector</code>设置该值。</p>
 <blockquote>
 <p><strong><em>Return</em></strong>：当前执行器名称。可能是 <code>“Arms”, “LArm”, “RArm” or “None”</code></p>
 </blockquote>
-<h5 id="altrackergetmaximumacceleration"><code>ALTracker.getMaximumAcceleration()</code></h5>
+<h5 id="altrackergetmaximumacceleration"><code>ALTracker.getMaximumAcceleration()</code><a class="headerlink" href="#altrackergetmaximumacceleration" title="Permanent link">#</a></h5>
 <p>获得头部最大加速度。使用<code>ALTracker.setMaximumAcceleration</code>设置此值。</p>
 <blockquote>
 <p><strong><em>Return</em></strong>: 以rad.s^-2为单位返回最大加速度</p>
 </blockquote>
-<h5 id="altrackergetmaximumvelocity"><code>ALTracker.getMaximumVelocity ()</code></h5>
+<h5 id="altrackergetmaximumvelocity"><code>ALTracker.getMaximumVelocity ()</code><a class="headerlink" href="#altrackergetmaximumvelocity" title="Permanent link">#</a></h5>
 <p>获得头部最大速度。使用<code>ALTracker.setMaximumVelocity</code>来设置这个值。</p>
 <blockquote>
 <p><strong><em>Return</em></strong>: 以rad.s^-1为单位返回最大速度</p>
 </blockquote>
-<h5 id="altrackergetmode"><code>ALTracker.getMode ()</code></h5>
+<h5 id="altrackergetmode"><code>ALTracker.getMode ()</code><a class="headerlink" href="#altrackergetmode" title="Permanent link">#</a></h5>
 <p>获取使用用<code>ALTracker.setMode</code>定义的当前模式。</p>
 <blockquote>
 <p><strong><em>Return</em></strong>: 当前跟踪器预定义模式。参见:跟踪模式。</p>
 </blockquote>
-<h5 id="altrackergetrelativeposition"><code>ALTracker.getRelativePosition ()</code></h5>
+<h5 id="altrackergetrelativeposition"><code>ALTracker.getRelativePosition ()</code><a class="headerlink" href="#altrackergetrelativeposition" title="Permanent link">#</a></h5>
 <p>获取移动模式下机器人相对于目标的位置。使用ALTracker.setRelativePosition设置该值。</p>
 <blockquote>
 <p><strong><em>Return</em></strong>: 返回:跟踪的最终目标:<code>[coordX, coordY, coordWz, thresholdX, thresholdY, thresholdWz]</code>。</p>
 </blockquote>
-<h5 id="altrackerregistertargettargetname-param"><code>ALTracker.registerTarget(TargetName, Param)</code></h5>
+<h5 id="altrackerregistertargettargetname-param"><code>ALTracker.registerTarget(TargetName, Param)</code><a class="headerlink" href="#altrackerregistertargettargetname-param" title="Permanent link">#</a></h5>
 <p>用参数<code>(RedBall, 红球直径)</code>注册预定义的目标。如果跟踪正在运行，则订阅相应的提取器和存储最后位置。如果目标已经注册，则只更新参数。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>Targetname</code> - 预先定义的目标名字</p>
 <p><code>Param</code> - 目标参数</p>
 </blockquote>
-<h5 id="altrackertracktargetname"><code>ALTracker.track(TargetName)</code></h5>
+<h5 id="altrackertracktargetname"><code>ALTracker.track(TargetName)</code><a class="headerlink" href="#altrackertracktargetname" title="Permanent link">#</a></h5>
 <p>设定预先设定的目标进行跟踪，并开始跟踪过程。目标名称之前需要注册<code>ALTracker.registerTarget</code>。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>Targetname</code> - 预先定义的目标名字</p>
 </blockquote>
-<h5 id="altrackerseteffector-effector"><code>ALTracker.setEffector (Effector)</code></h5>
+<h5 id="altrackerseteffector-effector"><code>ALTracker.setEffector (Effector)</code><a class="headerlink" href="#altrackerseteffector-effector" title="Permanent link">#</a></h5>
 <p>设置一个末端执行器移动以进行跟踪。追踪器总是用头部, 使用ALTracker.getEffector获取该值。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>Effector</code> - 执行器的名字。可以是:" Arms "， " LArm "， " RArm "或" None " </p>
 </blockquote>
-<h5 id="altrackersetmaximumacceleration-maxacceleration"><code>ALTracker.setMaximumAcceleration (MaxAcceleration)</code></h5>
+<h5 id="altrackersetmaximumacceleration-maxacceleration"><code>ALTracker.setMaximumAcceleration (MaxAcceleration)</code><a class="headerlink" href="#altrackersetmaximumacceleration-maxacceleration" title="Permanent link">#</a></h5>
 <p>设置头部的最大绝对加速度。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>MaxAcceleration</code> - 以rad.s^-2为单位的非负最大加速度</p>
 </blockquote>
-<h5 id="altrackersetmaximumdistancedetection-maxdistance"><code>ALTracker.setMaximumDistanceDetection (MaxDistance)</code></h5>
+<h5 id="altrackersetmaximumdistancedetection-maxdistance"><code>ALTracker.setMaximumDistanceDetection (MaxDistance)</code><a class="headerlink" href="#altrackersetmaximumdistancedetection-maxdistance" title="Permanent link">#</a></h5>
 <p>设置目标检测的最大绝对距离。如果到目标的距离大于这里给出的距离，则认为目标丢失了。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong> </p>
 <p><em><code>MaxDistance</code></em>  - 距离，正，单位为米。</p>
 </blockquote>
-<h5 id="altrackersetmaximumvelocity-maxvelocity"><code>ALTracker.setMaximumVelocity (MaxVelocity )</code></h5>
+<h5 id="altrackersetmaximumvelocity-maxvelocity"><code>ALTracker.setMaximumVelocity (MaxVelocity )</code><a class="headerlink" href="#altrackersetmaximumvelocity-maxvelocity" title="Permanent link">#</a></h5>
 <p>设置头的最大绝对速度。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong> </p>
 <p><code>MaxVelocity</code> – 速度，非负，单位为rad.s^-2</p>
 </blockquote>
-<h5 id="altrackersetmode-maxvelocity"><code>ALTracker.setMode (MaxVelocity)</code></h5>
+<h5 id="altrackersetmode-maxvelocity"><code>ALTracker.setMode (MaxVelocity)</code><a class="headerlink" href="#altrackersetmode-maxvelocity" title="Permanent link">#</a></h5>
 <p>将跟踪器设置为预定义模式。使用<code>ALTracker.getMode</code>获取该值。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>Mode</code> - 预先定义的模式</p>
 </blockquote>
-<h5 id="altrackersetrelativeposition-target"><code>ALTrackerset.RelativePosition (Target)</code></h5>
+<h5 id="altrackersetrelativeposition-target"><code>ALTrackerset.RelativePosition (Target)</code><a class="headerlink" href="#altrackersetrelativeposition-target" title="Permanent link">#</a></h5>
 <p>在移动模式下，设置机器人相对于目标的位置。 使用<code>ALTracker.getRelativePosition</code>来获得这个值。</p>
 <blockquote>
 <p><strong><em>Parameters:</em></strong>  </p>
 <p><code>Target</code> - 跟踪的最终目标:<code>[coordX, coordY, coordWz, thresholdX, thresholdY, thresholdWz]</code></p>
 </blockquote>
-<h5 id="altrackerstoptracker"><code>ALTracker.stopTracker()</code></h5>
+<h5 id="altrackerstoptracker"><code>ALTracker.stopTracker()</code><a class="headerlink" href="#altrackerstoptracker" title="Permanent link">#</a></h5>
 <p>停止追踪</p>
-<h4 id="_14">脸部追踪实例</h4>
+<h4 id="_14">脸部追踪实例<a class="headerlink" href="#_14" title="Permanent link">#</a></h4>
 <pre><code class="python">#! /usr/bin/env python
 # -*- encoding: UTF-8 -*-
 

@@ -7,6 +7,7 @@ nav:
     - '机器人听觉': audio.md
     - '机器人情绪感知': emotion.md
     - '机器人跳舞实例解析': dance.md
+    - '机器人踢球实例解析': kick_ball.md
 theme: readthedocs
 markdown_extensions:
     - toc:

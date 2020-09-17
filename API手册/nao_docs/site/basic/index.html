@@ -83,6 +83,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../emotion/">机器人情绪感知</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dance/">机器人跳舞实例解析</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../kick_ball/">机器人踢球实例解析</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -115,13 +123,13 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="_1">基本操作</h2>
-<h3 id="alproxy">使用ALProxy代理连接</h3>
-<h4 id="ip">获取机器人ip地址</h4>
+                <h2 id="_1">基本操作<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<h3 id="alproxy">使用ALProxy代理连接<a class="headerlink" href="#alproxy" title="Permanent link">#</a></h3>
+<h4 id="ip">获取机器人ip地址<a class="headerlink" href="#ip" title="Permanent link">#</a></h4>
 <p>1.使用网线进行连接后，从电脑端的app中设置机器人连接无线网</p>
 <p><img alt="/sites/default/files/repository/70_html_nao/_images/note_ipaddress.png" src="../imgs/note_ipaddress.png" /></p>
 <p>2.快速按下<strong>NAO</strong>的胸部按钮一次。NAO会复述他的IP地址的四个数字，用<strong>点分隔</strong>。</p>
-<h4 id="alproxy_1">ALProxy</h4>
+<h4 id="alproxy_1">ALProxy<a class="headerlink" href="#alproxy_1" title="Permanent link">#</a></h4>
 <p><code>ALProxy</code>是一个代理对象，它允许用户通过机器人Nao在局域网内的IP地址和端口（port）访问连接到的所有方法或模块（如：<code>ALTextToSpeech</code>模块等等。</p>
 <blockquote>
 <p>class(module_name, ip_address, port)</p>
@@ -137,7 +145,7 @@ tts = ALProxy(&quot;ALTextToSpeech&quot;, &quot;&lt;IP of your robot&gt;&quot;, 
 tts.say(&quot;Hello, world!&quot;)
 </code></pre>
 
-<h3 id="_2">并行任务执行</h3>
+<h3 id="_2">并行任务执行<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
 <p>用户初始化的每一个<code>ALProxy</code>对象都有一个名为<code>post</code>(代码中第五行)的属性，这能让每一个代理调用的方法同步=执行，而不需要按照正常python的执行顺序顺序执行，如以下实例实现了Nao机器人行走同时并说话：</p>
 <pre><code class="Python">from naoqi import ALProxy
 motion = ALProxy(&quot;ALMotion&quot;, &quot;&lt;IP of your robot&gt;&quot;, 9559)
