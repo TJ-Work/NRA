@@ -54,15 +54,31 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">基本操作</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">设置你的机器人</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">下载机器人配置软件</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ip">获取机器人ip地址</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#alproxy">使用ALProxy代理连接</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#ip">获取机器人ip地址</a>
+    <li class="toctree-l3"><a class="reference internal" href="#python-sdk">下载安装Python SDK</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">检查是否安装成功</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#alproxy_1">ALProxy</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_2">并行任务执行</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">并行任务执行</a>
     </li>
     </ul>
                     </li>
@@ -124,11 +140,103 @@
             <div class="section">
               
                 <h2 id="_1">基本操作<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
-<h3 id="alproxy">使用ALProxy代理连接<a class="headerlink" href="#alproxy" title="Permanent link">#</a></h3>
+<h3 id="_2">设置你的机器人<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<h4 id="_3">下载机器人配置软件<a class="headerlink" href="#_3" title="Permanent link">#</a></h4>
+<p>在您的电脑上，根据您的操作系统下载<strong>Robot Settings安装程序</strong>版本。</p>
+<table>
+<thead>
+<tr>
+<th align="left">系统</th>
+<th align="left">版本</th>
+<th align="left">下载链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Linux</strong></td>
+<td align="left">Ubuntu 16.04 Xenial Xerus - 64bits only</td>
+<td align="left"><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-linux64-setup.run">Robot settings Linux 64 - Installer</a><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-linux64.tar.gz">Robot settings Linux 64 - Tar</a></td>
+</tr>
+<tr>
+<td align="left"><strong>Windows</strong></td>
+<td align="left">Microsoft Windows 10 - 64bits</td>
+<td align="left"><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-win64-vs2015-setup.exe">Robot settings Win 64 - Installer</a><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-win64-vs2015.zip">Robot settings Win 64 - Tar</a></td>
+</tr>
+<tr>
+<td align="left"><strong>Mac</strong></td>
+<td align="left">Mac OS X 10.12 Sierra</td>
+<td align="left"><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-mac64-setup.dmg">Robot settings Mac 64 - Installer</a><a href="https://community-static.aldebaran.com/resources/2.8.5/robot-settings-2.8.5.10-mac64.tar.gz">Robot settings Mac 64 - Tar</a></td>
+</tr>
+</tbody>
+</table>
+<p>下载完成直接双击安装，完成后打开。</p>
 <h4 id="ip">获取机器人ip地址<a class="headerlink" href="#ip" title="Permanent link">#</a></h4>
 <p>1.使用网线进行连接后，从电脑端的app中设置机器人连接无线网</p>
 <p><img alt="/sites/default/files/repository/70_html_nao/_images/note_ipaddress.png" src="../imgs/note_ipaddress.png" /></p>
 <p>2.快速按下<strong>NAO</strong>的胸部按钮一次。NAO会复述他的IP地址的四个数字，用<strong>点分隔</strong>。</p>
+<p>3.将IP地址填入ROBOT SETTING 界面，按ENTER键连接机器人NAO，并在用户界面中配置需要连接的WIFI，配置好即可拔掉网线，重新按压机器人胸部按钮，获得新的IP地址。</p>
+<p><img alt="/sites/default/files/repository/70_html_nao/_images/robot_settings_01.png" src="https://developer.softbankrobotics.com/sites/default/files/repository/70_html_nao/_images/robot_settings_01.png" /></p>
+<h3 id="alproxy">使用ALProxy代理连接<a class="headerlink" href="#alproxy" title="Permanent link">#</a></h3>
+<h4 id="python-sdk">下载安装Python SDK<a class="headerlink" href="#python-sdk" title="Permanent link">#</a></h4>
+<p><strong>支持的操作系统</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">系统</th>
+<th align="left">版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Linux</strong></td>
+<td align="left">Ubuntu 16.04 Xenial Xerus - 64bits only</td>
+</tr>
+<tr>
+<td align="left"><strong>Windows</strong></td>
+<td align="left">Microsoft Windows 10 <strong>64bits</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>Mac</strong></td>
+<td align="left">Mac OS X 10.12 Sierra</td>
+</tr>
+</tbody>
+</table>
+<p>Mac10.12以上的版本也支持</p>
+<h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">#</a></h4>
+<ol>
+<li>下载安装Python <strong>2.7</strong>. <a href="http://python.org/download/">下载链接</a></li>
+<li>下载<em>NAOqi for Python</em>: <code>pynaoqi-python2.7-2.8.6.23-win64-vs2015-20191127_152649.zip</code> <a href="https://community-static.aldebaran.com/resources/2.8.6/pynaoqi-python2.7-2.8.6.23-win64-vs2015-20191127_152649.zip">点击下载</a>.</li>
+<li>设置windows环境变量(网上可搜索添加教程)，添加一个用户变量</li>
+<li><code>variable</code>：PYTHONPATH       <code>value</code>:path\to\python-sdk\lib</li>
+<li>下载安装“Microsoft Visual C++ 2010 Redistributable Package (x86)</li>
+</ol>
+<h4 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">#</a></h4>
+<ol>
+<li>确保 System Integrity Protection 被禁用。有关详细信息，请参考[<a href="https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html">Apple] Configuring System Integrity Protection </a></li>
+<li>安装python2.7<a href="http://python.org/download/">下载链接</a>: ，确保安装在<code>/usr/local/bin/python</code>, 而不是 <code>/usr/bin/python</code></li>
+<li>下载NAOqi Mac版本<code>pynaoqi-python2.7-2.8.6.23-mac64-20191127_144231.tar.gz</code>。<a href="https://community-static.aldebaran.com/resources/2.8.6/pynaoqi-python2.7-2.8.6.23-mac64-20191127_144231.tar.gz">点击下载</a>.</li>
+<li>设置环境变量</li>
+</ol>
+<pre><code class="bash">$ export PYTHONPATH=${PYTHONPATH}:/path/to/python-sdk/lib/python2.7/site-packages
+$ export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/path/to/python-sdk/lib
+$ export QI_SDK_PREFIX=/path/to/python-sdk
+</code></pre>
+
+<h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">#</a></h4>
+<ol>
+<li>确保Python版本为2.7</li>
+<li>下载安装NAOqi Linux版本，<a href="https://community-static.aldebaran.com/resources/2.8.6/pynaoqi-python2.7-2.8.6.23-linux64-20191127_152327.tar.gz">点击下载</a>.</li>
+<li>设置环境变量，也可更改bashrc文件。</li>
+</ol>
+<pre><code class="bash">$ export PYTHONPATH=${PYTHONPATH}:/path/to/python-sdk/lib/python2.7/site-packages
+$ export QI_SDK_PREFIX=/path/to/python-sdk
+</code></pre>
+
+<h4 id="_4">检查是否安装成功<a class="headerlink" href="#_4" title="Permanent link">#</a></h4>
+<p>在python2.7环境中使用</p>
+<pre><code class="python">import naoqi
+</code></pre>
+
 <h4 id="alproxy_1">ALProxy<a class="headerlink" href="#alproxy_1" title="Permanent link">#</a></h4>
 <p><code>ALProxy</code>是一个代理对象，它允许用户通过机器人Nao在局域网内的IP地址和端口（port）访问连接到的所有方法或模块（如：<code>ALTextToSpeech</code>模块等等。</p>
 <blockquote>
@@ -145,7 +253,7 @@ tts = ALProxy(&quot;ALTextToSpeech&quot;, &quot;&lt;IP of your robot&gt;&quot;, 
 tts.say(&quot;Hello, world!&quot;)
 </code></pre>
 
-<h3 id="_2">并行任务执行<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<h3 id="_5">并行任务执行<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
 <p>用户初始化的每一个<code>ALProxy</code>对象都有一个名为<code>post</code>(代码中第五行)的属性，这能让每一个代理调用的方法同步=执行，而不需要按照正常python的执行顺序顺序执行，如以下实例实现了Nao机器人行走同时并说话：</p>
 <pre><code class="Python">from naoqi import ALProxy
 motion = ALProxy(&quot;ALMotion&quot;, &quot;&lt;IP of your robot&gt;&quot;, 9559)
