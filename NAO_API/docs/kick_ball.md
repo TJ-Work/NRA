@@ -1,4 +1,6 @@
 ## Nao机器人踢球实例讲解
+<a href="../Examples/Nao_kick_ball/Nao_kick_ball.zip" download="Nao_kick_ball.zip">源代码下载</a>
+
 该实例包含color_threshold.py和kick_ball两个文件,其中color_threshold.py用于找到合适的阈值进行图像的二值化，kick_ball.py文件是踢球的主程序。
 
 ### color_threshold.py

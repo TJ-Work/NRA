@@ -1,5 +1,7 @@
 ## Nao机器人跳舞实例讲解
 
+<a href="../Examples/Nao_dance/NAOdance.py" download="NAOdance.py">源代码下载</a>
+
 ### 导入相应的库和`naoqi`框架
 
 ```python
