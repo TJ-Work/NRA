@@ -24,6 +24,15 @@ def Init():
     setHeadAngle(0, 0.25)
     motionProxy.setStiffnesses("Head", 0.0)
 
+def setHeadAngle(alpha, beta):
+    motionProxy.setStiffnesses("Head", 1.0)
+    maxSpeedFraction = 0.3
+    names = ["HeadYaw", "HeadPitch"]
+    angles = [alpha, beta]
+    motionProxy.angleInterpolationWithSpeed(names, angles, maxSpeedFraction)
+
+    motionProxy.setStiffnesses("Head", 0.0)
+
 def getImage(cameraID):
 
     if (cameraID == 0):  # Top Camera

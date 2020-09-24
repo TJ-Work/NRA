@@ -138,23 +138,23 @@ def move3():
 
     
     Head_motors       = ["HeadPitch","HeadYaw"    ]
-    Head_angles       = [[0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5]
+    Head_angles       = [[0.3,-0.3,0.3,-0.3,0.3,-0.3,0.3,-0.3,0.3,-0.3]
                          ,[1.0, -1.0]  ]
     Head_times        = [[0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0 ]
                          ,[ 2.5, 5.0]  ]
  
     UpperBody_motors  = ["RElbowRoll" ,"LElbowRoll"
                          ,"LShoulderPitch"  ,"RShoulderPitch"   ]
-    UpperBody_angles  = [[0.5],[-0.5],[0.8, -0.8, 0.0, -0.8, 0.8]
-                         ,[-0.8, 0.8, 0.0, 0.8, -0.8] ]
+    UpperBody_angles  = [[0.3],[-0.3],[0.5, -0.5, 0.0, -0.5, 0.5]
+                         ,[-0.5, 0.5, 0.0, 0.5, -0.5] ]
     UpperBody_times   = [[1.0],[1.0] ,[1.0,  2.0, 3.0,  4.0, 5.0]
                          ,[ 1.0, 2.0, 3.0, 4.0,  5.0] ]
 
         
     LowerBody_motors  = ["LKneePitch","RKneePitch","RAnklePitch","LAnklePitch"
                          ,"RHipPitch","LHipPitch"]
-    LowerBody_angles  = [[1,0]  ,[1,0]  ,[-0.5,0] ,[-0.5,0]
-                         ,[-0.5,0]   ,[-0.5,0]]
+    LowerBody_angles  = [[0.7,0]  ,[0.7,0]  ,[-0.3,0] ,[-0.3,0]
+                         ,[-0.3,0]   ,[-0.3,0]]
     LowerBody_times   = [[3,5]  ,[3,5]  ,[3,5]    ,[3,5]
                          ,[3,5]      ,[3,5]  ]
 
