@@ -3,6 +3,20 @@
 
 该实例包含color_threshold.py和kick_ball两个文件,其中color_threshold.py用于找到合适的阈值进行图像的二值化，kick_ball.py文件是踢球的主程序。
 
+操作方法：
+
+（1）启动机器人后，轻按其胸前的按钮，获取IP地址
+
+（2）利用color_threshold.py中描述的方法获取并记录目标球的H、S、V的值
+
+（3）在kick_ball.py文件中将IP地址改成机器人当前的IP地址，将要识别的颜色的H、S、V的值改成（2）中测量出来的值
+
+（4）打开终端，输入命令，启动实例
+
+```python
+python kick_ball.py
+```
+
 ### color_threshold.py
 在filename变量中填入图像文件所在的位置。
 
@@ -59,6 +73,12 @@ Choose_Color()
 ```
 运行程序后，出现交互界面，拖动HSV滑动条，使球的二值化效果达到最佳，记录下H,S,V的数值大小。
 
+<img src="imgs/raw_image.png" style="zoom:50%;" />
+
+<img src="imgs/HSV.png" style="zoom:80%;" />
+
+<img src="imgs/binalization.png" style="zoom:80%;" />
+
 ### kick_ball.py
 
 #### 导入库
@@ -96,7 +116,16 @@ def Init():
     motionProxy.setStiffnesses("Head", 0.0)
 ```
 
+#### 设置机器人头朝向角度
+
+```python
+
+```
+
+
+
 #### 获取图像
+
 ```python
 def getImage(cameraID):
 
