@@ -18,7 +18,7 @@ Welcome to NRA! NRA is an set of NAO robot examples, including:
 0. Configure Environment
 [Install the environment](https://tj-work.github.io/NRA/basic/)
 
-1.Run the programm
+1. Run the programm
 ```bash
 cd Examples
 python Nao_dance/Naodance.py
