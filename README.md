@@ -1,6 +1,6 @@
 <img align=right width=100px  src="Docs/NAO.jpg" />
 
-# EZMeeting: an online education meeting tools
+# NRA: a set of nao robot applications
 
 [![build](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)](https://github.com/TJ-Work/NRA/actions)
 [![Documentation](https://img.shields.io/badge/docs-passing-blue?style=plastic)](https://tj-work.github.io/NRA/)
@@ -17,6 +17,7 @@ Welcome to NRA! NRA is an set of NAO robot examples, including:
 ## 🛠 Quick Start
 0. Configure Environment
 [Install the environment](https://tj-work.github.io/NRA/basic/)
+
 1.Run the programm
 ```bash
 cd Examples
