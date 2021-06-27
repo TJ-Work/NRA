@@ -1,4 +1,4 @@
-<img align=right width=150px  src="static/images/NAO.png" />
+<img align=right width=150px  src="Docs/NAO.jpg" />
 
 # EZMeeting: an online education meeting tools
 
